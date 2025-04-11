@@ -8,11 +8,35 @@
         /// <param name="args">The arguments passed to the program</param>
         public static void Main(string[] args)
         {
-            // Write some code here...
-            int n = Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                int[] sorgente = new int[] { 1, 2, 3, 4, 5, 6, 7 };
+                Vettore vect = new Vettore(sorgente);
+                Console.WriteLine(vect.isEmpty());
+                Console.WriteLine(vect.ValoreMinimo());
+                Console.WriteLine(vect.ValoreMassimo());
+                Console.WriteLine(vect.ToString());
 
-            Console.WriteLine("Il perimetro del quadrato è " + n * 4);
-            Console.WriteLine("L'area del quadrato è " + n * n);
+                vect.printEvenNumbers();
+                vect.sort();
+            }
+            catch (Exception ex)
+            {
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            try
+            {
+                Vettore vect = new Vettore();
+                vect.Serialize("mio-file.txt");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Errore durante serializzazione {ex.Message}");
+            }
         }
+
     }
 }
